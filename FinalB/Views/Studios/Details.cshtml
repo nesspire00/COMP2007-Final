@@ -1,0 +1,22 @@
+﻿@model FinalB.Models.Studio
+
+@{
+    ViewBag.Title = "Movie Listings - " + @Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Listings - @Model.Name</h2>
+
+<div>
+   
+    <ul>
+        @foreach (var m in Model.Movies)
+        {
+            <li>@Html.ActionLink(m.Title, "../Movies/Details", new { id = m.MovieID })</li>
+        }
+    </ul>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

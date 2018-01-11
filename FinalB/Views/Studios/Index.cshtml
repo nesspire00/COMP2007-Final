@@ -1,0 +1,20 @@
+﻿@model IEnumerable<FinalB.Models.Studio>
+
+@{
+    ViewBag.Title = "Movie Studios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Studios</h2>
+
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "Details", new { id = item.StudioID })
+        </td>
+    </tr>
+}
+
+</table>

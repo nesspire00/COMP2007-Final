@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FinalB.Models.Movie>
+@{
+    ViewBag.Title = "Movie Listings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Movie Listings</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Poster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studio.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Revenue)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Content/Images/@Html.DisplayFor(modelItem => item.Poster)" />
+            </td>
+            <td>
+                @Html.ActionLink(item.Title, "Details", new { id = item.MovieID })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Studio.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Revenue)
+            </td>
+        </tr>
+    }
+</table>
